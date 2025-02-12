@@ -51,7 +51,7 @@ loginBtn.addEventListener('click', async (event) => {
             localStorage.setItem("username", user.username)
             localStorage.setItem("email", user.email)
             FirePopup('เข้าสู่ระบบสำเร็จ !', 'success', 'Okay');
-            sleep(1000).then(() => { window.location.href = "./Homepage.html"; });
+            sleep(1000).then(() => { window.location.href = "./homepage.html"; });
         } else {
             FirePopup('Password / Username ไม่ถูกต้อง', 'error', 'Okay');
             errorMessage.textContent = "Password / Username ไม่ถูก";
