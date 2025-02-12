@@ -104,24 +104,3 @@ const filterStudents = () => {
     });
 }
 fetchStudents();
-document.getElementById("coolcontainer").addEventListener("mouseover", async () => {
-    document.getElementById("nature-sound").play()
-})
-document.querySelectorAll("input").forEach(input => {
-    let clickCount = 0;
-    input.addEventListener("mouseover", function () {
-        if (clickCount < 3) {
-            const randomX = Math.floor(Math.random() * (window.innerWidth - this.clientWidth));
-            const randomY = Math.floor(Math.random() * (window.innerHeight - this.clientHeight));
-            this.style.zIndex=1000
-            this.placeholder="ไม่ให้กดหรอก"
-            this.style.position = "absolute";
-            this.style.left = `${randomX}px`;
-            this.style.top = `${randomY}px`;
-            clickCount++;
-        } else {
-            this.placeholder="หยอกเล่นกรอกได้ปกติ"
-            this.style.position = "static";
-        }
-    });
-});
