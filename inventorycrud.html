@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css">
+    <script src="https://kit.fontawesome.com/YOUR_FONTAWESOME_KIT.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Softworks LLC. | By pulawat6680</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./usercrud.html">User Management</a></li>
+            <li><a href="./inventorycrud.html">Inventory Management</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-4">📦 Inventory Management</h1>
+        <input type="text" id="searchBox" class="input input-bordered w-full mb-4" 
+               placeholder="🔍 ค้นหาสินค้า..." onkeyup="searchProducts()">
+        <form id="addProductForm" class="mb-4">
+            <input type="text" id="name" class="input input-bordered" placeholder="ชื่อสินค้า" required>
+            <input type="number" id="price" class="input input-bordered" placeholder="ราคา" required>
+            <input type="number" id="stock" class="input input-bordered" placeholder="จำนวนคงเหลือ" required>
+            <input type="text" id="image" class="input input-bordered" placeholder="URL รูปภาพ" required>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-plus"></i> เพิ่มสินค้า
+            </button>
+        </form>
+        <div id="productList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+        <div class="mt-4 flex justify-center">
+            <button onclick="prevPage()" class="btn btn-outline">⬅️ ก่อนหน้า</button>
+            <span id="pageInfo" class="mx-4">หน้า 1</span>
+            <button onclick="nextPage()" class="btn btn-outline">ถัดไป ➡️</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+    <script src="./Scripts/z.js"></script>
+    <script>
+        setInterval(chktoken,1000)
+    </script>
+    <script src="./Scripts/d.js"></script>
+</body>
+</html>

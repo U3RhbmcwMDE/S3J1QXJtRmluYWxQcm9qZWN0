@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD sys | Chaiyasit Jindasri</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="./Styles/Main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    body{
+        background-image: url("./Images/god.png");
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+  <div id="coolcontainer" class="container bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Softworks LLC. | By pulawat6680</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./usercrud.html">User Management</a></li>
+            <li><a href="./inventorycrud.html">Inventory Management</a></li>
+          </ul>
+        </div>
+      </div>
+    <a><img class="w-8 h-8 mr-2" src="./Images/image.png" alt="logo" id="rotate"></a>
+    <h1 class="text-2xl font-bold text-center mb-6"><i class="fa-solid fa-gears"></i> CRUD System | Chaiyasit Jindasri</h1>  
+    <div class="mb-4">
+      <input 
+        type="text" 
+        id="search" 
+        placeholder="ค้นหาชื่อผู้ใช้ . . . " 
+        class="input input-bordered w-full" 
+        oninput="filterStudents()"
+      />
+      <audio id="nature-sound" loop>
+        <source src="./Audio/bg1.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    <form id="student-form" class="mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input type="text" id="username" placeholder="ใส่ชื่อผู้ใช้" required class="input input-bordered">
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input type="password" id="password" placeholder="ใส่รหัสผ่าน" required class="input input-bordered">
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <input type="email" id="email" placeholder="ใส่อีเมล" required class="input input-bordered">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-4">เพิ่มผู้ใช้</button>
+    </form>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>UserName</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="student-table">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="edit-modal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">แก้ไขข้อมูลผู้ใช้</h3>
+      <form id="edit-student-form">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input type="text" id="edit-username" class="input input-bordered" required>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input type="text" id="edit-password" class="input input-bordered" required>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <input type="email" id="edit-email" class="input input-bordered" required>
+        </div>
+        <div class="modal-action">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn" onclick="closeModal('edit-modal')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="delete-modal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">ยืนยัน</h3>
+      <p class="py-4">จะลบผู้ใช้คนนี้จริงๆ หรือไม่ ? การดำเนินการนี้ไม่สามารถยกเลิกได้</p>
+      <div class="modal-action">
+        <button class="btn btn-error" id="confirm-delete">Delete</button>
+        <button class="btn" onclick="closeModal('delete-modal')">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+  <script src="./Scripts/z.js"></script>
+  <script>
+      setInterval(chktoken,1000)
+  </script>
+  <script src="./Scripts/a.js"></script>
+</body>
+</html>
