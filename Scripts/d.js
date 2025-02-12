@@ -1,4 +1,4 @@
-const API_URL = "https://6799ffea747b09cdcccd4f8a.mockapi.io/iliketoeatbruhhhhhhh"; // แก้เป็น API ของคุณ
+const API_URL = "https://6799ffea747b09cdcccd4f8a.mockapi.io/iliketoeatbruhhhhhhh";
 let currentPage = 1;
 const itemsPerPage = 6;
 async function fetchProducts(page = 1) {
